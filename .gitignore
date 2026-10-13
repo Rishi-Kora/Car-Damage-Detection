@@ -1,0 +1,20 @@
+# Virtual environment
+.venv/
+venv/
+
+# Large data and archives
+dataset/
+CarDD_release.zip
+*.zip
+yolo_data/images/
+*.cache
+
+# Model weights and training outputs
+*.pt
+runs/
+
+# OS / editor
+.DS_Store
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

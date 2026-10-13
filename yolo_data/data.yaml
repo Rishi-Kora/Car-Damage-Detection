@@ -1,0 +1,12 @@
+path: /Users/rishikora/projects/projects/Car Damage Detection/yolo_data
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: dent
+  1: scratch
+  2: crack
+  3: glass shatter
+  4: lamp broken
+  5: tire flat
