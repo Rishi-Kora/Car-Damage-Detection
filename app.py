@@ -25,7 +25,7 @@ st.set_page_config(page_title="Car Damage Detector", layout="wide")
 st.title("Car Damage Detector")
 st.write("Upload a photo of a damaged car. The app will mark and name the damage.")
 
-confidence = 0.25
+confidence = 0.4
 uploaded = st.file_uploader("Upload car photo", type=["jpg", "jpeg", "png"])
 
 if uploaded:
