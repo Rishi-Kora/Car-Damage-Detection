@@ -136,9 +136,45 @@ Open the link shown in the terminal, upload a `.jpg`, `.jpeg` or `.png` photo, a
 
 ## Results
 
-| Metric (test split) | Value |
-| --- | --- |
-| Mask mAP50 | _add the value printed at the end of `train.py`_ |
+Baseline model: YOLO11n-seg, 30 epochs, image size 640, batch 8, trained on an Apple Silicon Mac (about 19.6 hours).
+
+Dataset: CarDD, 4,000 images (2,816 train, 810 validation, 374 test), 8,740 labelled damage marks.
+
+### Test split (374 images, 785 damage marks)
+
+| Class | Mask mAP50 | Box mAP50 |
+| --- | --- | --- |
+| Glass shatter | 0.982 | 0.980 |
+| Tire flat | 0.898 | 0.915 |
+| Lamp broken | 0.844 | 0.851 |
+| Dent | 0.595 | 0.601 |
+| Scratch | 0.580 | 0.601 |
+| Crack | 0.380 | 0.382 |
+| **All classes** | **0.713** | **0.722** |
+
+### Validation split (810 images, final epoch)
+
+| Metric | Mask | Box |
+| --- | --- | --- |
+| Precision | 0.709 | 0.728 |
+| Recall | 0.685 | 0.681 |
+| mAP50 | 0.701 | 0.712 |
+| mAP50-95 | 0.540 | 0.568 |
+
+### What these numbers mean
+
+- This is a baseline, not a finished model. It is the smallest YOLO11 model, and the scores were still rising at epoch 30.
+- Large, clear damage (broken glass, flat tyre, broken lamp) is detected well.
+- Fine surface damage (dent, scratch, crack) is the weak area. Dents and scratches are confused with each other in about 27% of cases.
+- Test-split precision, recall and mAP50-95 are not reported yet.
+
+### Next steps
+
+- Train a larger model (YOLO11s or YOLO11m) for more epochs.
+- Collect and label our own images of Indian cars in real site lighting.
+- Report results separately for daylight, shade, night and wet conditions.
+
+CarDD is licensed for non-commercial research and education only. This model is a research baseline.
 
 ---
 
